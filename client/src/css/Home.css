@@ -1,0 +1,45 @@
+.viewpic
+{
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.785);
+    left: 0px;
+    top: 0px;
+}
+
+.viewpic > img
+{
+    transform: translateY(50%);
+}
+
+.filterpic:hover
+{
+    filter: invert(100);
+    border-left: 4px solid rgb(255, 255, 255);
+}
+
+.filterpic:active img
+{
+    transform: scale(0.9);
+}
+
+.filter
+{
+    z-index: 20;
+    left: 0px;
+    border: 4px solid black;
+    filter: opacity(50%);
+    transform: scaleY(0%);
+    transform-origin: top;
+    transition: all 0.25s ease-in-out;
+}
+
+.filteropen
+{
+    transform: scaleY(100%);
+    filter: opacity(100%);
+}
+
+.save:active
+{
+    transform: scale(0.9);
+}

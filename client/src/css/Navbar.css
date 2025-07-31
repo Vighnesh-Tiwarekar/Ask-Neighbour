@@ -1,0 +1,23 @@
+.horiznav>div {
+    transition: all 0.15s ease-in-out;
+    border: 4px solid black;
+    border-radius: 10px;
+    box-shadow: 4px 4px 0px var(--shadow-color);
+    user-select: none;
+}
+
+.horiznav>div:hover {
+    color: white;
+    background-color: black;
+}
+
+.horiznav>div:active {
+    color: white;
+    background-color: black;
+    transform: scale(0.95);
+}
+
+.lamp:active
+{
+    transform: translateY(10px);
+}

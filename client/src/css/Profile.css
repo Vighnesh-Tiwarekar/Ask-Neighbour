@@ -1,0 +1,22 @@
+@media screen and (max-width: 400px) {
+    
+    .profdetails > div{
+        gap: 10px;
+    }
+}
+
+
+.profileform input[readonly]
+{
+  color: rgb(107, 107, 107);
+}
+
+.cancelbtn
+{
+  background-color: rgb(255, 35, 35);
+}
+
+.cancelbtn:hover
+{
+  background-color: rgb(225, 0, 0);
+}

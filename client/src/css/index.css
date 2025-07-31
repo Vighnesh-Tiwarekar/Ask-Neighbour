@@ -1,0 +1,27 @@
+
+
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-midl: 53.5rem;
+  --breakpoint-exsm: 27.5rem;
+  --breakpoint-mdxl: 87.5rem;
+}
+
+body
+{
+    overflow-y: scroll;
+}
+
+*::-webkit-scrollbar {
+    display: none; 
+}
+
+body
+{
+    background-color: rgb(255, 255, 255);
+}
+
+:root {
+  --shadow-color: rgb(0, 0, 0);
+}
