@@ -22,6 +22,11 @@
   filter: invert(1);
 }
 
+.defblack .profimg
+{
+  background-color: black;
+}
+
 .defblack .filterpic,
 .defblack .menubtn {
   filter: invert(1);

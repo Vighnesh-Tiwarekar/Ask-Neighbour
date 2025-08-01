@@ -32,3 +32,27 @@
 {
     background-color: gray;
 }
+
+.home div:nth-child(1)
+{
+    background-color: black;
+    color: white;
+}
+
+.yourposts div:nth-child(2)
+{
+    background-color: black;
+    color: white;
+}
+
+.create div:nth-child(3)
+{
+    background-color: black;
+    color: white;
+}
+
+.profile div:nth-child(4)
+{
+    background-color: black;
+    color: white;
+}
