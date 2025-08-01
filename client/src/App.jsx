@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './css/App.css'
+import './css/Mode.css'
 import { loginContext } from './context/context'
 import { RouterProvider, Navigate } from 'react-router-dom'
 import { Router } from './components/router'

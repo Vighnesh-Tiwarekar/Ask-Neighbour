@@ -146,7 +146,7 @@ const YourPosts = () => {
             <div className='pl-[5px] w-full flex gap-[5px] items-center'>
 
               <div>
-                <img src={search} className='w-[35px]' alt="" />
+                <img src={search} className='w-[35px] searchicon' alt="" />
               </div>
 
               <input className='searchbar border-0 outline-0 w-full font-bold px-[5px]' type="text" placeholder='Search'

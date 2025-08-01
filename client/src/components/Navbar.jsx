@@ -73,10 +73,13 @@ const Navbar = () => {
     if(loginvalue.theme === 'defblack')
     {
       loginvalue.settheme('defwhite')
+      document.body.style.backgroundColor = 'white';
+
     }
     else
     {
-      loginvalue.settheme('defblack')
+      loginvalue.settheme('defblack');
+      document.body.style.backgroundColor = 'black';
     }
   }
 
@@ -96,7 +99,7 @@ const Navbar = () => {
 
           </div>
 
-          <div className='p-[10px] hover:bg-[gray] rounded-[30px] display midl:hidden cursor-pointer' onClick={handlemenu}>
+          <div className='p-[10px] menubtn hover:bg-[gray] rounded-[30px] display midl:hidden cursor-pointer' onClick={handlemenu}>
             <img src={ismenu ? cross : menu} className='h-[25px]' alt="" />
           </div>
 

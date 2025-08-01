@@ -56,7 +56,7 @@ const PostCard = ({ post }) => {
         </div>
 
         <div onClick={handlebookmark}>
-          <img src={bookmarked ? save_red : save_white} className='h-[40px] relative save' alt="" />
+          <img src={bookmarked ? save_red : save_white} className={`h-[40px] relative save ${bookmarked ? 'booked' : 'unbooked'}`} alt="" />
         </div>
 
       </section>
@@ -179,7 +179,7 @@ const Home = () => {
             <div className='pl-[5px] w-full flex gap-[5px] items-center'>
 
               <div>
-                <img src={search} className='w-[35px]' alt="" />
+                <img src={search} className='searchicon w-[35px]' alt="" />
               </div>
 
               <input className='searchbar border-0 outline-0 w-full font-bold px-[5px]' type="text" placeholder='Search'
