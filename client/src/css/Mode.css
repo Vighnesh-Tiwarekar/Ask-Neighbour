@@ -1,54 +1,70 @@
-.defblack
-{
+.defblack {
   --shadow-color: white;
 }
 
-.defblack div, .defblack .tags, .defblack form
-{
+.defblack div,
+.defblack .tags,
+.defblack form {
   background-color: black;
   border-color: white;
   color: white;
 }
 
-.defblack .middletxt, .defblack .middletxt div
-{
+.defblack .middletxt,
+.defblack .middletxt div {
   background-color: white;
   color: black;
 }
 
-.defblack .lamp>img, .defblack .searchicon, .defblack .unbooked 
-{
+.defblack .lamp > img,
+.defblack .searchicon,
+.defblack .unbooked {
   filter: invert(1);
 }
 
-.defblack .filterpic, .defblack .menubtn
-{
-    filter: invert(1);
-    background-color: rgb(255, 255, 255);
-    border-color: black;
+.defblack .filterpic,
+.defblack .menubtn {
+  filter: invert(1);
+  background-color: rgb(255, 255, 255);
+  border-color: black;
 }
 
-.defblack .filterpic:hover
-{
-    filter: invert(0);
+.defblack .filterpic:hover {
+  filter: invert(0);
 }
 
-.defblack button:not(.cancelbtn)
-{
-    background-color: rgb(0, 183, 0);
+.defblack button:not(.cancelbtn) {
+  background-color: rgb(0, 183, 0);
 }
 
 .defblack button:not(.cancelbtn):hover {
   background-color: rgb(0, 128, 0);
 }
 
-.defblack div input, .defblack select, .defblack textarea
-{
-    background-color: black;
-    color: white;
+.defblack div input,
+.defblack select,
+.defblack textarea {
+  background-color: black;
+  color: white;
 }
 
-.defblack .booked
+.defblack .booked {
+  filter: grayscale(0.1);
+}
+
+.defblack .horiznav > div:hover {
+  color: black;
+}
+
+.defblack .vernav > div:hover {
+  background-color: rgb(67, 67, 67);
+}
+
+.defblack .vernav > div:active {
+  background-color: rgb(67, 67, 67);
+}
+
+.defblack .menucover
 {
-    filter: grayscale(0.1);
+  background-color: rgba(255, 255, 255, 0.212);
 }

@@ -22,35 +22,35 @@ const NavComp = (props) => {
 
   return (
     <>
-      <div className='px-[15px] sm:flex items-center' onClick={() => {
+      <div className=' px-[50px] py-[10px] midl:px-[15px] midl:py-[0px] sm:flex items-center' onClick={() => {
         navigate('/')
         props.setismenu(false)
       }}>
         Home
       </div>
 
-      <div className='px-[15px] ' onClick={() => {
+      <div className=' px-[50px] py-[10px] midl:px-[15px] midl:py-[0px] ' onClick={() => {
         navigate('/yourposts')
         props.setismenu(false)
       }}>
         Your Posts
       </div>
 
-      <div className='px-[15px]' onClick={() => {
+      <div className=' px-[50px] py-[10px] midl:px-[15px] midl:py-[0px] ' onClick={() => {
         navigate('/createpost')
         props.setismenu(false)
       }}>
         Create Post
       </div>
 
-      <div className='px-[15px] sm:flex items-center' onClick={() => {
+      <div className=' px-[50px] py-[10px] midl:px-[15px] midl:py-[0px] sm:flex items-center' onClick={() => {
         navigate('/profile')
         props.setismenu(false)
       }}>
         Profile
       </div>
 
-      <div className='px-[15px]' onClick={handlesignout}>
+      <div className=' px-[50px] py-[10px] midl:px-[15px] midl:py-[0px] mt-auto' onClick={handlesignout}>
         Sign Out
       </div>
     </>
@@ -68,16 +68,14 @@ const Navbar = () => {
 
   const loginvalue = useContext(loginContext)
 
-  const handleModeToggle = () =>{
+  const handleModeToggle = () => {
 
-    if(loginvalue.theme === 'defblack')
-    {
+    if (loginvalue.theme === 'defblack') {
       loginvalue.settheme('defwhite')
       document.body.style.backgroundColor = 'white';
 
     }
-    else
-    {
+    else {
       loginvalue.settheme('defblack');
       document.body.style.backgroundColor = 'black';
     }
@@ -100,12 +98,14 @@ const Navbar = () => {
           </div>
 
           <div className='p-[10px] menubtn hover:bg-[gray] rounded-[30px] display midl:hidden cursor-pointer' onClick={handlemenu}>
-            <img src={ismenu ? cross : menu} className='h-[25px]' alt="" />
+            <img src={ismenu ? null : menu} className='h-[25px]' alt="" />
           </div>
 
         </div>
 
-        {ismenu && <div className='absolute z-10 right-0 font-bold flex flex-col gap-[10px] py-[15px] text-[18px] bg-white text-center'>
+        {ismenu && <div className='h-[100vh] w-[100vw] absolute bg-[#0000005a] top-0 left-0 z-9 menucover' onClick={() => setismenu(false)}></div>}
+
+        {ismenu && <div className='h-[100vh] absolute z-10 top-0 right-0 font-bold flex flex-col py-[15px] text-[18px] bg-[white] text-center vernav'>
           <NavComp setismenu={setismenu} ></NavComp>
         </div>}
 

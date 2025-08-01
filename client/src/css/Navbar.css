@@ -21,3 +21,14 @@
 {
     transform: translateY(10px);
 }
+
+
+.vernav > div:hover
+{
+    background-color: gray;
+}
+
+.vernav > div:active
+{
+    background-color: gray;
+}
