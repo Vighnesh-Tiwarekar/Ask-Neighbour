@@ -7,6 +7,7 @@ import { connectdb } from './config/database.js';
 import login from './routes/login.js'
 import setup from './routes/setup.js'
 import service from './routes/service.js'
+import cloudinary from './routes/cloudinary.js'
 import { validate_token } from '../../AskNeighbour/server/middleware/validate_token.js';
 
 
@@ -36,6 +37,8 @@ app.use('/ask_neigh/login',login)
 app.use('/ask_neigh/setup',validate_token,setup)
 
 app.use('/ask_neigh/service',validate_token,service)
+
+app.use('/ask_neigh/cloudinary',validate_token,cloudinary)
 
 app.listen(port, () => {
     console.log(`Server is running on Port ${port}`)

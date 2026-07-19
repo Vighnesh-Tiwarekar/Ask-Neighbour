@@ -1,95 +1,94 @@
+import { uploadToCloudinary } from './uploadImage';
 
-
-export const sendpost = async(post_info, navigate,queryClient) => {
-
-    const formData = new FormData();
-
-
-    formData.append('title', post_info.title);
-    formData.append('description', post_info.description);
-    formData.append('post_type', post_info.post_type);
-    formData.append('paid', post_info.paid);
-    formData.append('urgency', post_info.urgency);
-
+export const sendpost = async (post_info, navigate, queryClient) => {
+    let imageUrl = '';
     const fileInput = document.getElementById('img');
-    if (fileInput.files[0]) {
-        formData.append('post_img', fileInput.files[0]);
+    
+    if (fileInput && fileInput.files[0]) {
+        try {
+            imageUrl = await uploadToCloudinary(fileInput.files[0]);
+        } catch (error) {
+            alert('Image upload failed. Please try again.');
+            return;
+        }
     }
+
+    const payload = {
+        title: post_info.title,
+        description: post_info.description,
+        post_type: post_info.post_type,
+        paid: post_info.paid,
+        urgency: post_info.urgency,
+        post_img: imageUrl // Cloudinary URL
+    };
 
     try {
         const response = await fetch('http://localhost:8000/ask_neigh/service/sendpost', {
             method: 'POST',
-            body: formData,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
             credentials: 'include'
         });
 
-        if(response.ok)
-        {
+        if (response.ok) {
             alert('Post has been sent');
-            queryClient.invalidateQueries(['yourposts'])
-            queryClient.invalidateQueries(['posts'])
-            navigate('/')
+            queryClient.invalidateQueries(['yourposts']);
+            queryClient.invalidateQueries(['posts']);
+            navigate('/');
             return;
         }
         
         const msg = await response.json();
-        alert(msg.message)
-
-    }
-    catch(err)
-    {
+        alert(msg.message);
+    } catch (err) {
         console.log(`Error: ${err}`);
-        alert("Some Error Occured")
+        alert("Some Error Occurred");
     }
-
 }
 
-export const updatepost = async(setupdate, post) => {
-
-    const formData = new FormData();
-
-    formData.append('post_id', post._id)
-    formData.append('title', post.title);
-    formData.append('description', post.description);
-    formData.append('paid', post.tags[0]);
-    formData.append('urgency', post.tags[1]);
-
-    console.log(post.tags)
-
+export const updatepost = async (setupdate, post) => {
+    let imageUrl = post.post_img_url || ''; // Default to existing URL
     const fileInput = document.getElementById('uimg');
-    if (fileInput.files[0]) {
-        formData.append('post_img', fileInput.files[0]);
+    
+    if (fileInput && fileInput.files[0]) {
+        try {
+            // Upload new image if user selected one
+            imageUrl = await uploadToCloudinary(fileInput.files[0]);
+        } catch (error) {
+            alert('Image upload failed. Please try again.');
+            return;
+        }
     }
-    else
-    {
-        console.log(post.post_img)
-        formData.append('post_img', post.post_img )
-    }
+
+    const payload = {
+        post_id: post._id,
+        title: post.title,
+        description: post.description,
+        paid: post.tags[0],
+        urgency: post.tags[1],
+        post_img: imageUrl // Updated or existing Cloudinary URL
+    };
 
     try {
         const response = await fetch('http://localhost:8000/ask_neigh/service/updatepost', {
             method: 'PATCH',
-            body: formData,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
             credentials: 'include'
         });
 
-        if(response.ok)
-        {
+        if (response.ok) {
             alert('Post has been updated');
             setupdate(false);
             return;
         }
         
         const msg = await response.json();
-        alert(msg.message)
-
-    }
-    catch(err)
-    {
+        alert(msg.message);
+    } catch (err) {
         console.log(`Error: ${err}`);
-        alert("Some Error Occured")
+        alert("Some Error Occurred");
     }
-
 }
 
 
